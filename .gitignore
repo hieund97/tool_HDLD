@@ -1,0 +1,35 @@
+# ===== Dữ liệu cá nhân nhạy cảm (KHÔNG commit) =====
+# File Excel danh sách sale (chứa CCCD, họ tên...)
+*.xlsx
+*.xls
+# Ảnh CCCD / scan
+*.jpg
+*.jpeg
+*.png
+# PDF hợp đồng / kết quả
+*.pdf
+# CSV kết quả xử lý
+*.csv
+
+# Thư mục dữ liệu vào / ra
+CCCD/
+editCCCD/
+Danh sach HĐLĐ/
+PLHD*/
+output_pdf/
+output_HDLD/
+output_PLHĐ/
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ===== Hệ điều hành / công cụ =====
+.DS_Store
+.claude
+.idea/
+.vscode/
