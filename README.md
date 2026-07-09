@@ -8,19 +8,59 @@ phụ lục hợp đồng (PLHĐ), tự động **OCR số CCCD** rồi đối c
 
 ## Yêu cầu môi trường
 
-- **Python 3**
-- **Tesseract OCR** kèm gói tiếng Việt:
-  ```bash
-  brew install tesseract tesseract-lang
-  ```
-- **Poppler** (cung cấp `pdftoppm`, `pdfinfo`):
-  ```bash
-  brew install poppler
-  ```
-- Thư viện Python:
-  ```bash
-  pip install pillow pytesseract openpyxl pypdf img2pdf
-  ```
+Cần 3 thành phần: **Python 3**, **Tesseract OCR** (kèm gói tiếng Việt `vie`) và **Poppler**
+(cung cấp `pdftoppm`, `pdfinfo`). Chọn hướng dẫn theo hệ điều hành bên dưới.
+
+### macOS (Homebrew)
+
+```bash
+brew install python tesseract tesseract-lang poppler
+pip3 install pillow pytesseract openpyxl pypdf img2pdf
+```
+
+### Linux (Ubuntu / Debian)
+
+```bash
+# Công cụ hệ thống
+sudo apt update
+sudo apt install -y python3 python3-pip tesseract-ocr tesseract-ocr-vie poppler-utils
+
+# Thư viện Python
+pip3 install pillow pytesseract openpyxl pypdf img2pdf
+```
+
+> Fedora / RHEL: `sudo dnf install python3 python3-pip tesseract tesseract-langpack-vie poppler-utils`
+> Arch: `sudo pacman -S python python-pip tesseract tesseract-data-vie poppler`
+
+### Windows
+
+1. **Python 3** — tải tại <https://www.python.org/downloads/>, khi cài **tích chọn "Add Python to PATH"**.
+2. **Tesseract OCR** — tải bộ cài từ <https://github.com/UB-Mannheim/tesseract/wiki>.
+   - Trong lúc cài, ở bước *"Additional language data"* nhớ **chọn `Vietnamese`** (gói `vie`).
+   - Mặc định cài vào `C:\Program Files\Tesseract-OCR`. Thêm đường dẫn này vào biến môi trường **PATH**.
+3. **Poppler** — tải bản Windows tại <https://github.com/oschwartz10612/poppler-windows/releases>,
+   giải nén rồi thêm thư mục `...\poppler\Library\bin` vào **PATH**.
+4. **Thư viện Python** (mở PowerShell hoặc CMD):
+   ```powershell
+   pip install pillow pytesseract openpyxl pypdf img2pdf
+   ```
+
+> **Lưu ý Windows:** nếu đã thêm Tesseract vào PATH mà script vẫn báo không tìm thấy,
+> mở đầu file `.py` thêm dòng chỉ đường dẫn tuyệt đối:
+> ```python
+> pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+> ```
+> Ngoài ra, `sua_cccd_pdf.py` dùng phông `Times New Roman` theo đường dẫn macOS
+> (`/System/Library/Fonts/...`) — trên Windows cần sửa biến `FONT` thành `C:\Windows\Fonts\times.ttf`.
+
+### Kiểm tra đã cài đúng
+
+```bash
+python3 --version        # hoặc: python --version  (Windows)
+tesseract --version
+tesseract --list-langs   # phải thấy 'vie' trong danh sách
+pdftoppm -v
+```
 
 ---
 
