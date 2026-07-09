@@ -4,10 +4,6 @@ Tập hợp các script Python dùng để **xử lý hàng loạt** ảnh CCCD,
 phụ lục hợp đồng (PLHĐ), tự động **OCR số CCCD** rồi đối chiếu với danh sách trong file Excel
 để đặt tên / tách / ghép file theo đúng người.
 
-> ⚠️ **Dữ liệu cá nhân nhạy cảm.** Các script này làm việc với số CCCD, họ tên. File Excel,
-> ảnh, PDF và CSV kết quả **KHÔNG được commit** lên repo (đã cấu hình trong `.gitignore`).
-> Chỉ mã nguồn được đưa lên Git.
-
 ---
 
 ## Yêu cầu môi trường
